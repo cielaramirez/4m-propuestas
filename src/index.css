@@ -1,0 +1,362 @@
+/* Base de la demo. Los colores y medidas salen de los tokens de FrYDA (cargados en index.html);
+   el valor de respaldo es el mismo del Figma, por si el CDN no responde. */
+:root {
+  --c-texto: var(--fry-s-color-content-neutral-strong, #1c1f28);
+  --c-texto-suave: #55575e;
+  --c-texto-sutil: #77797e;
+  --c-fondo: #ffffff;
+  --c-fondo-suave: #f3f3f3;
+  --c-fondo-hueso: #f7f3ee;
+  --c-borde: #e6e8ec;
+  --c-borde-fuerte: #a4a5a9;
+  --c-naranja: var(--fry-s-color-surface-action-primary-default, #c94e22);
+  --c-naranja-vivo: #e45b29;
+  --c-naranja-oscuro: #a83c18;
+  --c-banner: #fde1d8;
+  --c-banner-crema: #fff1e1;
+  --c-verde: #1f8a70;
+  --c-ambar: #b7791f;
+  --c-rojo: #c0392b;
+  --fuente: var(--fry-f-text-style-font-family, 'Maison Neue'), 'Helvetica Neue', Arial, system-ui, sans-serif;
+  --fuente-nav: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --alto-nav: 62px;
+  --sombra-hoja: 0 -8px 32px rgba(28, 31, 40, 0.18);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: #e9e7e2; /* fondo neutro alrededor del contenedor mobile */
+  color: var(--c-texto);
+  font-family: var(--fuente);
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior: none;
+}
+
+h1,
+h2,
+h3,
+p,
+ul {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+button {
+  font: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  max-width: none;
+}
+
+b,
+strong {
+  font-weight: 600;
+}
+
+/* ---------- Contenedor mobile ---------- */
+.app {
+  position: relative;
+  width: 100%;
+  height: 100dvh;
+  margin: 0 auto;
+  background: var(--c-fondo);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(28, 31, 40, 0.12);
+}
+
+.pantalla {
+  flex: 1;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  /* aire para que la pastilla "Ver como" no tape el final del contenido */
+  padding-bottom: 44px;
+}
+
+/* Como en un celular: el contenido se desplaza sin barra visible */
+.pantalla,
+.hoja__cuerpo,
+.chat__mensajes,
+.chat__caja {
+  scrollbar-width: none;
+}
+.pantalla::-webkit-scrollbar,
+.hoja__cuerpo::-webkit-scrollbar,
+.chat__mensajes::-webkit-scrollbar,
+.chat__caja::-webkit-scrollbar {
+  display: none;
+}
+
+/* Capa donde se montan hojas inferiores, panel "Ver como" y avisos */
+.capa {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  pointer-events: none;
+}
+.capa > * {
+  pointer-events: auto;
+}
+
+/* En celulares la app ocupa toda la pantalla. Solo en pantallas más anchas (tablet o
+   computadora) se muestra centrada con ancho de celular: no hay layout de tablet ni desktop. */
+@media (min-width: 600px) {
+  .app {
+    max-width: 430px;
+  }
+}
+
+/* ---------- Utilidades de texto ---------- */
+.t-titulo {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+}
+.t-sutil {
+  color: var(--c-texto-sutil);
+}
+.legal {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--c-texto-sutil);
+}
+.acento {
+  color: var(--c-naranja);
+}
+
+/* ---------- Encabezado Yanbal ---------- */
+.cabecera {
+  position: relative;
+  flex: none;
+  height: 80px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--c-fondo);
+  border-bottom: 1px solid var(--c-fondo-suave);
+}
+.cabecera__menu {
+  width: 32px;
+  height: 32px;
+}
+.cabecera__logo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 99px;
+  height: 16px;
+}
+.cabecera__bolsa {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 16px;
+  border-radius: 100px;
+  background: var(--c-fondo-suave);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+}
+.cabecera__bolsa img {
+  width: 16px;
+  height: 16px;
+}
+
+/* ---------- Navegación inferior ---------- */
+.nav {
+  flex: none;
+  display: flex;
+  align-items: center;
+  padding: 8px 0 calc(8px + env(safe-area-inset-bottom));
+  background: var(--c-fondo);
+  border-top: 1px solid #e7e0d8;
+}
+.nav__item {
+  flex: 1 0 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 0;
+  border-radius: 12px;
+  font-family: var(--fuente-nav);
+  font-size: 11px;
+  line-height: 13px;
+  letter-spacing: 0;
+  color: #242424;
+  white-space: nowrap;
+}
+.nav__icono {
+  width: 42px;
+  height: 27px;
+  display: grid;
+  place-items: center;
+}
+.nav__icono img {
+  width: 20px;
+  height: 20px;
+}
+.nav__icono--ancho img {
+  width: 42px;
+  height: 27px;
+}
+.nav__item--activa {
+  background: var(--c-fondo-hueso);
+  font-weight: 700;
+}
+
+/* ---------- Hoja inferior ---------- */
+.hoja-fondo {
+  position: absolute;
+  inset: 0;
+  background: rgba(28, 31, 40, 0.8);
+  animation: aparecer 0.18s ease-out;
+}
+.hoja {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-height: 94%;
+  display: flex;
+  flex-direction: column;
+  background: var(--c-fondo);
+  border-radius: 16px 16px 0 0;
+  box-shadow: var(--sombra-hoja);
+  overflow: hidden;
+  animation: subir 0.24s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.hoja__cabecera {
+  flex: none;
+}
+.hoja__zona {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+.hoja__cuerpo {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+/* Contenido que no cabe: divisores en los cortes y barra de scroll siempre visible */
+.hoja--con-scroll .hoja__cabecera {
+  border-bottom: 1px solid var(--c-borde);
+}
+.hoja--con-scroll .hoja__pie {
+  border-top: 1px solid var(--c-borde);
+}
+.hoja__barra {
+  position: absolute;
+  right: 4px;
+  width: 4px;
+  border-radius: 4px;
+  background: rgba(28, 31, 40, 0.35);
+  pointer-events: none;
+}
+.hoja__pie {
+  flex: none;
+  display: flex;
+  gap: 12px;
+  padding: 16px 24px calc(24px + env(safe-area-inset-bottom));
+  background: var(--c-fondo);
+}
+.hoja__pie > * {
+  flex: 1 1 0;
+  min-width: 0;
+}
+.hoja__cerrar {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes subir {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+}
+
+/* ---------- Aviso breve ---------- */
+.aviso {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: calc(var(--alto-nav) + 16px);
+  padding: 12px 16px;
+  border-radius: 8px;
+  background: var(--c-texto);
+  color: #fff;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  animation: subir 0.2s ease-out;
+}
+
+/* ---------- Placeholder de secciones fuera de alcance ---------- */
+.vacio {
+  padding: 72px 32px;
+  text-align: center;
+  color: var(--c-texto-sutil);
+}
+.vacio h1 {
+  margin-bottom: 8px;
+  font-size: 18px;
+  line-height: 24px;
+  color: var(--c-texto);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

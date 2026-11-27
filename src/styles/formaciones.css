@@ -1,0 +1,328 @@
+/* Parte B · Formaciones */
+.solo-lector {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.formaciones__cabecera {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px 24px 12px;
+  background: #f5f3ef;
+}
+.formaciones__titulo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.formaciones__titulo h1 {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+}
+.formaciones__titulo img {
+  flex: none;
+  width: 107px;
+  height: 71.4px;
+  margin: 4px -14px 4px -13px;
+}
+
+.formaciones__pestanas {
+  display: flex;
+  margin: 16px 24px 0;
+}
+.formaciones__pestana {
+  flex: 1 1 auto;
+  padding: 10px 6px 13px;
+  border-bottom: 1px solid var(--c-texto);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
+}
+.formaciones__pestana--activa {
+  padding-bottom: 10px;
+  border-bottom: 4px solid var(--c-naranja);
+  color: var(--c-naranja);
+}
+
+.formaciones__filtros {
+  display: flex;
+  gap: 8px;
+  padding: 12px 24px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.formaciones__filtros::-webkit-scrollbar {
+  display: none;
+}
+.formaciones__filtros fry-chip {
+  flex: none;
+}
+.formaciones__lista {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 4px 24px 24px;
+}
+.formaciones__vacio {
+  padding: 48px 16px;
+  text-align: center;
+  color: var(--c-texto-sutil);
+}
+
+/* Etiqueta de potencial */
+.potencial {
+  flex: none;
+  height: 24px;
+  padding: 3px 8px;
+  border: 1px solid;
+  border-radius: 4px;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.potencial--alto {
+  background: #c6eeed;
+  border-color: #57a8a7;
+  color: #1b3c3b;
+}
+.potencial--medio {
+  background: #fff1e1;
+  border-color: #ce8700;
+  color: #4b2e00;
+}
+.potencial--bajo {
+  background: #ffdada;
+  border-color: #ea6972;
+  color: #650c1d;
+}
+.potencial--sin {
+  background: #f1efea;
+  border-color: #c4c7ce;
+  color: #575b66;
+}
+
+/* Fila con check o X */
+.fila-estado {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 14px;
+  line-height: 20px;
+}
+.fila-estado fry-icon {
+  flex: none;
+  margin-top: 2px;
+}
+.fila-estado--ok fry-icon {
+  color: #407d7d;
+}
+.fila-estado--no fry-icon {
+  color: #a4283a;
+}
+
+/* Franja de aviso ámbar */
+.franja-aviso {
+  padding: 8px 12px;
+  border-left: 4px solid #9b6400;
+  color: #311d00;
+  border-radius: 4px;
+  background: #fff1e1;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+/* Card de candidata */
+.candidata {
+  overflow: hidden;
+  border: 1px solid #a1a5ae;
+  border-radius: 16px;
+  background: #fff;
+  transition: box-shadow 0.3s;
+}
+.candidata--alto {
+  border-color: #26504f;
+}
+.candidata--destacada {
+  box-shadow: 0 0 0 3px rgba(201, 78, 34, 0.35);
+}
+.candidata__cuerpo {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+}
+.candidata__cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  color: #33353d;
+}
+.candidata__nombre {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  text-decoration: underline;
+}
+.candidata__filas {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.candidata__acciones {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.candidata__acciones fry-button {
+  flex: 1;
+  min-width: 0;
+}
+.candidata__acciones fry-button-icon {
+  flex: none;
+}
+.candidata__enviado {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: -4px;
+  font-size: 12px;
+  line-height: 16px;
+  color: #407d7d;
+}
+.candidata__pie {
+  display: flex;
+  justify-content: flex-end;
+  padding: 12px 16px;
+  background: #f5f3ef;
+}
+.enlace--chico {
+  font-size: 14px;
+  color: var(--c-texto);
+}
+
+/* Popup · Bono de formación */
+.bono__cabecera {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 16px 56px 16px 16px;
+  border-radius: 16px;
+  background: #fde4da;
+  font-size: 16px;
+  line-height: 24px;
+}
+.bono__etiqueta {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--c-naranja);
+  color: #fff;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+}
+.bono__monto {
+  font-size: 36px;
+  line-height: 43px;
+  font-weight: 600;
+}
+.bono {
+  padding: 24px 24px 8px;
+}
+.ascenso {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+  padding: 12px;
+  border: 1px solid var(--c-borde);
+  border-radius: 12px;
+}
+.ascenso .fila-estado {
+  color: #575b66;
+}
+.ascenso__paso {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+}
+.ascenso__nivel {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--c-borde);
+  color: #2c2f39;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.ascenso__nivel--destino {
+  background: var(--c-texto);
+  color: #fff;
+}
+.bono__subtitulo {
+  margin-top: 24px;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+}
+.bono__ayuda {
+  margin-top: 4px;
+  color: #575b66;
+}
+.bono__candidatas {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 16px;
+}
+.bono__candidata {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+  color: #33353d;
+}
+.bono__candidata-fila {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+.bono__candidata-fila b {
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--c-texto);
+}
+.bono__legal {
+  margin-top: 20px;
+}
+
+/* Celulares angostos: las pestañas se compactan y, si hace falta, parten el texto en dos líneas */
+@media (max-width: 359px) {
+  .formaciones__pestanas {
+    align-items: stretch;
+  }
+  .formaciones__pestana {
+    min-width: 0;
+    padding-left: 2px;
+    padding-right: 2px;
+    font-size: 13px;
+    letter-spacing: 0;
+    white-space: normal;
+  }
+}

@@ -1,0 +1,88 @@
+/* Programas · Elige Crecer */
+.programas__lista {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px 24px 24px;
+}
+.programas__info {
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+}
+.programas__info fry-icon {
+  flex: none;
+  margin-top: 2px;
+}
+.programas .emprendedoras__titulo img {
+  width: 72px;
+  height: 80px;
+  margin: -8px 0;
+}
+
+/* Estado de la participante (Directora) */
+.estado-programa {
+  flex: none;
+  padding: 3px 8px;
+  border: 1px solid;
+  border-radius: 4px;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.estado-programa--enRiesgo {
+  background: #ffdada;
+  border-color: #ea6972;
+  color: #650c1d;
+}
+.estado-programa--enCurso {
+  background: #fff1e1;
+  border-color: #ce8700;
+  color: #4b2e00;
+}
+.estado-programa--cumplio {
+  background: #e8f8f9;
+  border-color: #2eb0b4;
+  color: #1f8084;
+}
+
+/* Escalones del bono */
+.escalones {
+  display: flex;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.escalon {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4px 2px;
+  border-radius: 4px;
+  background: var(--c-borde);
+  color: #77797e;
+  font-size: 12px;
+  line-height: 16px;
+  white-space: nowrap;
+}
+.escalon--logrado {
+  background: #346867;
+  color: #fff;
+}
+.programas__acordeon {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 0;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+}

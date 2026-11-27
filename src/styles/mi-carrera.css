@@ -1,0 +1,385 @@
+/* Mi carrera */
+.carrera {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px 0;
+}
+.carrera--con-sueno {
+  padding-top: 0;
+}
+.carrera__seccion {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0 24px;
+}
+.carrera__subtitulo {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+/* Card "Tu sueño" */
+.sueno-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 23px 12px 23px 24px;
+  border-bottom: 1px solid var(--c-borde);
+}
+.sueno-card__trofeo {
+  flex: none;
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+  object-position: bottom;
+}
+.sueno-card__texto {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+.sueno-card__texto b {
+  max-width: 100%;
+  font-size: 16px;
+  line-height: 24px;
+  overflow-wrap: anywhere;
+}
+.sueno-card__etiqueta {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--c-borde);
+  color: #2c2f39;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+}
+.sueno-card__editar {
+  flex: none;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+}
+
+/* Banner "Rumbo hacia Directora" */
+.rumbo {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 16px;
+  border: 1px solid #e78a6a;
+  border-radius: 16px;
+  background: #fde4da;
+}
+.rumbo__imagen {
+  position: absolute;
+  right: -26px;
+  bottom: -24px;
+  width: 102px;
+  height: 102px;
+}
+.rumbo__imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.rumbo__titulo {
+  position: relative;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  color: var(--c-naranja-oscuro);
+}
+.rumbo__frase {
+  position: relative;
+  margin: 5px 0 16px;
+  font-size: 18px;
+  line-height: 28px;
+}
+.rumbo__frase b {
+  font-size: 20px;
+}
+
+/* Camino de carrera: lienzo fijo de 312×599 como en el Figma */
+.camino {
+  position: relative;
+  align-self: center;
+  width: 312px;
+  height: 560px;
+}
+.camino__ruta {
+  position: absolute;
+  left: 86.12px;
+  top: 20.84px;
+  overflow: visible;
+}
+.nodo {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nodo--etiqueta-derecha {
+  flex-direction: row-reverse;
+}
+/* Nombre completo del nivel, en texto suelto y en varias líneas (como en el Figma) */
+.nodo__etiqueta {
+  max-width: 100px;
+  color: #1c1f28;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  text-align: left;
+}
+.nodo__aqui {
+  display: block;
+  width: fit-content;
+  margin-bottom: 2px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #fde4da;
+  color: #a83c18;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.nodo__circulo {
+  flex: none;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--c-borde);
+  border-radius: 50%;
+  background: #fff;
+}
+.nodo__circulo img {
+  width: 24px;
+  height: 24px;
+}
+.nodo--anterior .nodo__circulo {
+  border-color: #fff;
+  background: #dc582a;
+}
+.nodo--actual .nodo__circulo {
+  border-color: #7a2e14;
+  background: #dc582a;
+}
+.nodo--actual .nodo__etiqueta,
+.nodo--meta .nodo__etiqueta {
+  color: #2c2f39;
+  font-weight: 600;
+}
+.nodo--meta .nodo__circulo {
+  border-color: #c8963e;
+  background: #f5e9d6;
+}
+.nodo--meta .nodo__circulo img {
+  width: 30px;
+  height: 30px;
+}
+
+/* El siguiente nivel pulsa para invitar a tocarlo: mismo halo que el Q en curso de la tarjeta "Crecimiento DIR" */
+.nodo--siguiente {
+  isolation: isolate;
+}
+.nodo--siguiente .nodo__circulo {
+  position: relative;
+  border-color: #dc582a;
+}
+.nodo--siguiente .nodo__circulo::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  z-index: -1;
+  border-radius: 50%;
+  background: #dc582a;
+  pointer-events: none;
+  animation: nodo-pulso 1.6s ease-out infinite;
+}
+.nodo--siguiente .nodo__etiqueta {
+  color: #c94e22;
+  font-weight: 600;
+}
+@keyframes nodo-pulso {
+  0% { opacity: 0.5; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.8); }
+}
+
+/* Cards "Da el siguiente paso" */
+.paso-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  padding: 20px 8px 24px 24px;
+  border: 2px solid var(--c-borde);
+  border-radius: 24px;
+  background: #fff;
+  color: var(--c-texto);
+  text-align: left;
+  text-decoration: none;
+}
+.paso-card--directora {
+  border-color: rgba(237, 237, 237, 0.14);
+  background: linear-gradient(164.53deg, rgb(243, 155, 125) 2.42%, rgb(201, 78, 34) 97.58%);
+  color: #fff;
+}
+.paso-card__texto {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 14px;
+  line-height: 20px;
+}
+.paso-card__texto b {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 16px;
+  line-height: 24px;
+}
+.paso-card > img {
+  flex: none;
+}
+.paso-card__anillos {
+  position: relative;
+  flex: none;
+  width: 115px;
+  height: 115px;
+}
+.paso-card__anillos img {
+  position: absolute;
+}
+.paso-card__anillos img:nth-child(1) {
+  inset: 0;
+  width: 115px;
+  height: 115px;
+}
+.paso-card__anillos img:nth-child(2) {
+  left: 37px;
+  top: 37px;
+  width: 40px;
+  height: 40px;
+}
+.paso-card__anillos img:nth-child(3) {
+  left: 19px;
+  top: 19px;
+  width: 76.67px;
+  height: 76.67px;
+}
+.paso-card__anillos img:nth-child(4) {
+  left: 37px;
+  top: 36.8px;
+  width: 40px;
+  height: 40.4px;
+  object-fit: contain;
+  object-position: bottom;
+}
+
+/* Hoja de detalle de nivel */
+.nivel {
+  padding: 24px 24px 8px;
+}
+.nivel__estado {
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #2c2f39;
+  color: #fff;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+}
+.nivel__estado--anterior {
+  background: var(--c-verde);
+}
+.nivel__estado--siguiente {
+  background: var(--c-naranja);
+}
+.nivel__estado--masAdelante {
+  background: var(--c-borde);
+  color: #2c2f39;
+}
+.nivel__descripcion {
+  margin-top: 4px;
+  font-size: 16px;
+  line-height: 24px;
+  color: #575b66;
+}
+.nivel__ganancia {
+  margin-top: 12px;
+  font-size: 16px;
+  line-height: 24px;
+}
+.nivel__subtitulo {
+  margin-top: 20px;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+}
+.nivel__nota {
+  margin-top: 2px;
+  color: #575b66;
+}
+.nivel__requisitos {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 20px;
+}
+.nivel__requisitos li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.nivel__requisitos:not(.nivel__requisitos--logrados) li::before {
+  content: '';
+  flex: none;
+  width: 6px;
+  height: 6px;
+  margin: 7px 7px 0;
+  border-radius: 50%;
+  background: var(--c-naranja);
+}
+.nivel__requisitos fry-icon {
+  flex: none;
+}
+.nivel__aviso {
+  margin-top: 16px;
+  padding: 12px;
+  border-left: 3px solid #e0a458;
+  border-radius: 4px;
+  background: var(--c-banner-crema);
+  font-size: 14px;
+  line-height: 20px;
+}
+.nivel__legal {
+  margin-top: 16px;
+}
+
+/* A 360 px el gráfico se recorta un poco para que el título quepa en una línea */
+.paso-card > img,
+.paso-card__anillos {
+  margin-right: -14px;
+}
+
+/* Celulares angostos (menos de 360 px): el camino se reduce en proporción para no desbordar */
+@media (max-width: 359px) {
+  .camino {
+    zoom: 0.86;
+  }
+}
+

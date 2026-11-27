@@ -1,0 +1,115 @@
+/* Panel "Ver como" (herramienta de demo) */
+.vercomo-pastilla,
+.vercomo-ajustes,
+.vercomo {
+  position: absolute;
+  left: 12px;
+  bottom: 16px;
+}
+.vercomo--sobre-nav {
+  bottom: calc(var(--alto-nav) + 12px);
+}
+.vercomo-pastilla {
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--c-borde);
+  background: #fff;
+  font-size: 12px;
+  line-height: 16px;
+  box-shadow: 0 4px 14px rgba(28, 31, 40, 0.22);
+}
+.vercomo-pastilla b {
+  color: var(--c-naranja);
+}
+.vercomo-fuera {
+  position: absolute;
+  inset: 0;
+}
+.vercomo {
+  width: 264px;
+  max-width: calc(100% - 24px);
+  padding: 14px;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 8px 28px rgba(28, 31, 40, 0.3);
+  animation: subir 0.16s ease-out;
+}
+.vercomo__cabecera {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+}
+.vercomo__demo {
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: var(--c-banner);
+  color: var(--c-naranja);
+  font-size: 10px;
+  line-height: 14px;
+  font-weight: 600;
+}
+.vercomo__minimizar {
+  margin-left: auto;
+  width: 28px;
+  height: 28px;
+  font-size: 18px;
+  line-height: 1;
+  border-radius: 50%;
+}
+.vercomo__grupo {
+  margin: 10px 0 6px;
+  font-size: 10px;
+  line-height: 14px;
+  letter-spacing: 1px;
+  font-weight: 600;
+  color: var(--c-texto-sutil);
+}
+.vercomo__botones {
+  display: flex;
+  gap: 6px;
+}
+.vercomo__perfil {
+  flex: 1 1 0;
+  padding: 7px 0;
+  border: 1.5px solid #c9ccd6;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+}
+.vercomo__perfil--activo {
+  background: var(--c-naranja);
+  border-color: var(--c-naranja);
+  color: #fff;
+}
+.vercomo__descripcion {
+  margin-top: 10px;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--c-texto-suave);
+}
+.vercomo__reiniciar {
+  margin-top: 8px;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--c-texto-sutil);
+  text-decoration: underline;
+}
+
+/* Acceso discreto al configurador cuando el panel está apagado */
+.vercomo-ajustes {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--c-borde);
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--c-texto-sutil);
+  opacity: 0.55;
+}
+.vercomo-ajustes:active {
+  opacity: 1;
+}

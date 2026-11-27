@@ -1,0 +1,65 @@
+/* Pantalla "Configurar demo" y campos de formulario propios */
+.config {
+  padding: 40px 24px 32px;
+}
+.config__demo {
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--c-naranja);
+  color: #fff;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+}
+.config__ayuda {
+  margin-top: 4px;
+}
+.config__estatus {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.config__descripcion {
+  margin-top: 8px;
+}
+.config__panel {
+  margin-top: 24px;
+}
+.config__accion {
+  margin-top: 32px;
+}
+
+.campo {
+  display: block;
+  margin-top: 20px;
+}
+.campo__etiqueta {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+}
+.campo__input {
+  width: 100%;
+  height: 48px;
+  padding: 0 16px;
+  border: 1px solid var(--c-texto-sutil);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--c-texto);
+  font: inherit;
+  font-size: 16px; /* evita el zoom de iOS al enfocar */
+  line-height: 24px;
+  letter-spacing: 0.2px;
+  outline: none;
+}
+.campo__input::placeholder {
+  color: var(--c-texto-sutil);
+}
+.campo__input:focus {
+  border-color: var(--c-texto);
+  box-shadow: inset 0 0 0 1px var(--c-texto);
+}

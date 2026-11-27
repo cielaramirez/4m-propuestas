@@ -1,0 +1,242 @@
+/* Home */
+.saludo {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px 24px 12px;
+}
+.saludo__actualizado {
+  font-size: 14px;
+  line-height: 19px;
+  color: var(--c-texto-sutil);
+}
+.saludo__fila {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+.saludo__fila > div {
+  min-width: 0;
+}
+.saludo__fila h1 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.saludo__fila fry-chip {
+  flex: none;
+  pointer-events: none;
+}
+.saludo__pregunta {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.accesos,
+.campana__tarjetas,
+.anuncios__carrusel {
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.accesos::-webkit-scrollbar,
+.campana__tarjetas::-webkit-scrollbar,
+.anuncios__carrusel::-webkit-scrollbar {
+  display: none;
+}
+
+.accesos {
+  padding: 0 24px 12px;
+}
+.acceso {
+  flex: none;
+  width: 96px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  line-height: 19px;
+  text-align: center;
+}
+.acceso img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+}
+.acceso__icono--espejo {
+  transform: scaleX(-1);
+}
+
+.campana {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px 0 32px 24px;
+  background: var(--c-naranja-vivo);
+}
+.campana__titulo {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+  color: #fff;
+}
+.campana__tarjetas {
+  gap: 8px;
+  padding-right: 24px;
+}
+.campana__tarjetas > li {
+  flex: none;
+  display: flex;
+}
+.indicador {
+  flex: none;
+  width: 135px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  text-align: left;
+  padding: 8px;
+  border-radius: 8px;
+  background: #fff;
+}
+.indicador__cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.indicador__icono {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+}
+.indicador__icono img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.indicador__icono--activas img {
+  width: 86.47%;
+  height: 124.71%;
+  left: 8.3%;
+  top: -10.05%;
+}
+.indicador__icono--credito img {
+  width: 114.9%;
+  height: 114.9%;
+  left: -8.68%;
+  top: -10.25%;
+}
+.indicador__chevron {
+  width: 16px;
+  height: 16px;
+}
+.indicador__etiqueta {
+  font-size: 14px;
+  line-height: 19px;
+  white-space: nowrap;
+}
+.indicador__valor {
+  font-size: 14px;
+  line-height: 20px;
+}
+.indicador__valor--destacado {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.anuncios {
+  padding: 24px 0 16px 24px;
+}
+.anuncios__carrusel {
+  gap: 8px;
+  padding-right: 24px;
+}
+.anuncios__legal {
+  margin-top: 8px;
+  padding-right: 24px;
+}
+.anuncio {
+  position: relative;
+  flex: 1 0 300px;
+  height: 136px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--c-banner-crema);
+  text-align: left;
+}
+.anuncio__texto {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 16px 0 16px 16px;
+  font-size: 14px;
+  line-height: 20px;
+}
+.anuncio__etiqueta {
+  height: 20px;
+  padding: 0 8px;
+  border-radius: 999px;
+  background: var(--c-naranja);
+  color: #fff;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.anuncio__foto {
+  flex: none;
+  width: 130px;
+  height: 136px;
+  overflow: hidden;
+}
+.anuncio__foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 38% center;
+}
+
+.pie {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 32px 24px;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+}
+.pie__enlaces {
+  display: flex;
+  gap: 24px;
+}
+
+/* Banner "Formaciones" (Directoras): ilustración dentro de un círculo blanco */
+.anuncio__circulo {
+  position: relative;
+  flex: none;
+  margin: 0 12px;
+  width: 104px;
+  height: 104px;
+  overflow: hidden;
+  border-radius: 50%;
+  background: #fff;
+}
+.anuncio__circulo img {
+  position: absolute;
+  left: -6.19%;
+  top: 3.81%;
+  width: 95.24%;
+  height: 95.24%;
+}
