@@ -626,7 +626,7 @@
   color: var(--c-naranja);
 }
 
-/* ---------- Opción 4 · patrón "Equipo" de Gio adaptado a la BDM ---------- */
+/* ---------- Opción 4 · patrón "Equipo" adaptado a la BDM ---------- */
 .op4__barra .barra-cuadrantes__parte {
   cursor: pointer;
   transition: opacity 0.15s ease;

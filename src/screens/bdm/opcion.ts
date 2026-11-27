@@ -5,7 +5,7 @@ export const OPCIONES = [
   { id: 1, titulo: 'Opción 1', detalle: 'Cards con chips de segmento' },
   { id: 2, titulo: 'Opción 2', detalle: 'Segmentos en tarjetas + lista compacta' },
   { id: 3, titulo: 'Opción 3', detalle: 'Editorial con Brandbook + cuadrícula' },
-  { id: 4, titulo: 'Opción 4', detalle: 'Patrón Equipo de Gio: resumen que filtra + lentes' },
+  { id: 4, titulo: 'Opción 4', detalle: 'Patrón Equipo: resumen que filtra + lentes' },
 ] as const
 
 export type OpcionId = (typeof OPCIONES)[number]['id']

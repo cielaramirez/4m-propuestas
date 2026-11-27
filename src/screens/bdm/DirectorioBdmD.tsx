@@ -16,7 +16,7 @@ import {
 } from './directorio-comun'
 
 /**
- * Opción 4 · Mis Grupos con el patrón "Equipo" de Gio (maya-redesign /n/equipo), adaptado a la BDM.
+ * Opción 4 · Mis Grupos con el patrón "Equipo" (resumen que filtra + lentes), adaptado a la BDM.
  * · Resumen visual arriba (anillo + barra por cuadrante) que además filtra: tocar un tramo de la barra filtra la lista.
  * · Segmentos de la metodología combinables (intersección), buscador por nombre o código y filtros adicionales.
  * · Lentes que reordenan la misma lista; en Prioridad las que están en A se agrupan al final.
