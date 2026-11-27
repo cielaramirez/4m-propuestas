@@ -1,0 +1,346 @@
+/* Opción 3 · Mis Grupos BDM con la capa editorial del Brandbook Yanbal 2024, sobre FrYDA.
+   Colores de marca: naranja #dc582a · blanco · oscuro #1c1f28.
+   Soporte: durazno #ffbe8e · coral #ff8a62. Emprendimiento (máx. 5 %): #2eb0b4 · #ffb049.
+   Sin degradados. Ogg solo en titulares cortos y números; Maison Neue para todo lo demás. */
+:root {
+  --marca-naranja: var(--fry-s-color-surface-action-primary-default, #dc582a);
+  --marca-oscuro: #1c1f28;
+  --soporte-durazno: #ffbe8e;
+  --soporte-coral: #ff8a62;
+  --emprende-turquesa: #2eb0b4;
+  --emprende-mostaza: #ffb049;
+  --fuente-titular: 'Ogg', 'Ogg Roman', Georgia, 'Times New Roman', serif;
+}
+
+.op3 {
+  padding-bottom: 8px;
+}
+
+/* ---------- Encabezado editorial con "ventana" ---------- */
+.op3__hero {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  padding: 28px 24px 24px;
+  background: #fff;
+}
+.op3__hero-texto {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.op3__sobre {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--c-texto-suave);
+}
+.op3__linea {
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  background: var(--marca-oscuro);
+}
+.op3__titular {
+  font-family: var(--fuente-titular);
+  font-size: 40px;
+  line-height: 42px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  color: var(--marca-oscuro);
+}
+.op3__bajada {
+  color: var(--c-texto-suave);
+}
+/* La ventana: foto enmarcada con una línea desplazada, sello de marca */
+.op3__ventana {
+  position: relative;
+  flex: none;
+  width: 112px;
+  height: 148px;
+  margin-right: 6px;
+}
+.op3__ventana::before {
+  content: '';
+  position: absolute;
+  inset: 8px -8px -8px 8px;
+  border: 1px solid var(--marca-naranja);
+}
+.op3__ventana img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 38% 30%;
+}
+
+/* ---------- Buscador ---------- */
+.op3__buscar {
+  padding: 0 24px;
+}
+.op3__buscar fry-searchbar {
+  display: block;
+}
+
+/* ---------- Índice de segmentos: número en Ogg + línea ---------- */
+.op3__indice {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 20px 24px 0;
+  border-top: 1px solid var(--marca-oscuro);
+  border-bottom: 1px solid var(--c-borde);
+}
+.op3__segmento {
+  position: relative;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 14px 10px 16px;
+  text-align: left;
+}
+.op3__segmento + .op3__segmento {
+  border-left: 1px solid var(--c-borde);
+}
+.op3__segmento::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -1px;
+  height: 4px;
+  background: transparent;
+}
+.op3__segmento--activo::after {
+  background: var(--marca-naranja);
+}
+.op3__segmento--activo {
+  background: #fff7f2;
+}
+.op3__numero {
+  font-family: var(--fuente-titular);
+  font-size: 34px;
+  line-height: 40px;
+  font-weight: 600;
+  color: var(--marca-oscuro);
+}
+.op3__numero--cero {
+  color: #c4c7ce;
+}
+.op3__segmento--activo .op3__numero {
+  color: var(--marca-naranja);
+}
+.op3__segmento-nombre {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+}
+.op3__marca {
+  position: absolute;
+  top: 14px;
+  right: 10px;
+  width: 18px;
+  height: 18px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #a4a5a9;
+  border-radius: 50%;
+}
+.op3__segmento--activo .op3__marca {
+  border-color: var(--marca-naranja);
+  background: var(--marca-naranja);
+  color: #fff;
+}
+
+/* ---------- Resumen en una frase + acciones con línea diagonal ---------- */
+.op3__resumen {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 24px 4px;
+}
+.op3__resumen p {
+  font-weight: 600;
+}
+.op3__acciones {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.op3__accion {
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.op3__diagonal {
+  width: 1px;
+  height: 18px;
+  background: var(--marca-oscuro);
+  transform: rotate(20deg);
+}
+.op3__aplicados {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  padding: 8px 24px 0;
+}
+
+/* ---------- Cuadrícula tipo Pokédex ---------- */
+.op3__grilla {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  padding: 16px 24px 8px;
+}
+.op3__card {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #d2d2d4;
+  border-radius: 16px;
+  background: #fff;
+  text-align: left;
+}
+.op3__card:active {
+  border-color: var(--marca-naranja);
+}
+.op3__card:focus-visible {
+  outline: 2px solid var(--marca-naranja);
+  outline-offset: 2px;
+}
+.op3__monograma {
+  position: relative;
+  height: 76px;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 12px 6px;
+  font-family: var(--fuente-titular);
+  font-size: 36px;
+  line-height: 40px;
+  font-weight: 600;
+  color: var(--marca-oscuro);
+}
+/* Colores de soporte de la marca: durazno para Junior, coral para Senior */
+.op3__monograma--jnr {
+  background: var(--soporte-durazno);
+}
+.op3__monograma--snr {
+  background: var(--soporte-coral);
+}
+.op3__cuadrante {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-family: var(--fuente); /* el Tag de FrYDA va en Maison Neue, no en Ogg */
+}
+.op3__cuadrante .tag-fry {
+  height: 24px;
+  padding: 1px 8px;
+  font-size: 12px;
+  line-height: 16px;
+}
+.op3__card-cuerpo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 12px 12px;
+}
+.op3__nombre {
+  font-weight: 600;
+  line-height: 18px;
+}
+.op3__codigo {
+  font-size: 11px;
+  line-height: 16px;
+  color: var(--c-texto-sutil);
+}
+.op3__marcas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 10px;
+  margin-top: 2px;
+}
+.op3__punto {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 600;
+}
+.op3__punto::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+/* Colores de emprendimiento, en dosis mínimas como pide el brandbook */
+.op3__punto--nueva::before {
+  background: var(--emprende-turquesa);
+}
+.op3__punto--formadora::before {
+  background: var(--emprende-mostaza);
+}
+.op3__datos {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: 8px;
+  border-top: 1px solid var(--c-borde);
+  font-size: 12px;
+  line-height: 16px;
+}
+.op3__estrellas {
+  font-weight: 600;
+  color: var(--marca-naranja);
+}
+.op3__estrellas--cero {
+  font-weight: 400;
+  color: var(--c-texto-sutil);
+}
+.op3__poderosa {
+  color: var(--c-texto-suave);
+  text-align: right;
+}
+
+/* ---------- Estados vacíos ---------- */
+.op3__vacio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 40px 32px;
+  text-align: center;
+}
+.op3__linea--centro {
+  width: 40px;
+  background: var(--marca-naranja);
+}
+.op3__vacio h2 {
+  font-family: var(--fuente-titular);
+  font-size: 26px;
+  line-height: 30px;
+  font-weight: 600;
+}
+.op3__vacio p {
+  color: var(--c-texto-suave);
+}
+.op3__vacio fry-button {
+  margin-top: 6px;
+}

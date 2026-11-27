@@ -1,8 +1,8 @@
 name: Publicar en GitHub Pages
 
+# Repo privado: GitHub Pages no publica desde repos privados en el plan gratuito,
+# así que el despliegue queda solo manual (Actions → Run workflow).
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:

@@ -19,7 +19,7 @@ interface Item {
 export function NavInferior({ ruta }: { ruta: string }) {
   const { perfil } = useDemo()
   const quinta =
-    perfil.grupo === 'directora'
+    perfil.grupo === 'directora' || perfil.grupo === 'bdm'
       ? { etiqueta: 'Formaciones', ruta: RUTAS.formaciones }
       : { etiqueta: 'Mi carrera', ruta: RUTAS.miCarrera }
   const items: Item[] = [

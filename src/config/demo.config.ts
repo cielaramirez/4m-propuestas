@@ -31,8 +31,8 @@ export interface DatosPais {
   montosAdaptados: Record<number, number>
 }
 
-export type Sigla = 'CNS' | 'CEM' | 'CES' | 'JNR' | 'SNR' | 'SSE' | 'REG'
-export type Grupo = 'emprendedora' | 'directora' | 'lider'
+export type Sigla = 'CNS' | 'CEM' | 'CES' | 'JNR' | 'SNR' | 'SSE' | 'REG' | 'BDM'
+export type Grupo = 'emprendedora' | 'directora' | 'lider' | 'bdm'
 export type NivelId = 'consultora' | 'cem' | 'cemSenior' | 'aspirante' | 'directora'
 
 export interface Nivel {
@@ -496,6 +496,15 @@ export const CONFIG = {
       campana: { ventaGP: 80000, activasGrupo: 96, deudaActual: 120, creditoYanbal: 807, ventaPersonal: 800 },
       desglose: [],
     },
+    BDM: {
+      sigla: 'BDM',
+      grupo: 'bdm',
+      descripcion: 'Business Development Manager — asesora a las Directoras de su coordinación',
+      gananciaActual: null,
+      // Mi Campaña de la BDM: cifras de su coordinación (ejemplo)
+      campana: { ventaGP: 284500, activasGrupo: 126, deudaActual: 0, creditoYanbal: 0, ventaPersonal: 0 },
+      desglose: [],
+    },
   } satisfies Record<Sigla, Perfil> as Record<Sigla, Perfil>,
 
   /** Bloque de ascenso del popup del bono, por perfil. TODO: validar porcentajes y reglas. */
@@ -697,6 +706,7 @@ export const CONFIG = {
   verComo: [
     { titulo: 'EMPRENDEDORAS', siglas: ['CNS', 'CEM', 'CES'] },
     { titulo: 'DIRECTORAS', siglas: ['JNR', 'SNR', 'SSE', 'REG'] },
+    { titulo: 'STAFF DE VENTAS', siglas: ['BDM'] },
   ] as { titulo: string; siglas: Sigla[] }[],
 }
 

@@ -1,0 +1,587 @@
+/* Mis Grupos · traído de la pantalla Equipo de maya-redesign, sobre FrYDA.
+   Tokens tomados de "01 FrYDA v1.0 · Foundations" (Tag, Business Progress bar, Avatar).
+   Se leen de los --fry-f-* del CDN y, si no llegan, usan el mismo valor del Figma. */
+:root {
+  --fry-barra-fondo: var(--fry-f-color-progressbar-default-background, #eae8df);
+  --fry-barra-borde: var(--fry-f-color-progressbar-default-border, #a1a5ae);
+  --fry-barra-avance: var(--fry-f-color-progressbar-default-content, #c94e22);
+  --fry-barra-exito: var(--fry-f-color-progressbar-success-content, #346867);
+  --fry-barra-error: var(--fry-f-color-progressbar-error-content, #a4283a);
+}
+
+/* Tag FrYDA · variante Business (alto 28, radio 4, padding 4/12, borde 1, Demi 14/20) */
+.tag-fry {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  height: var(--fry-f-component-tag-sizing-height, 28px);
+  padding: 4px 12px;
+  border: 1px solid;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.tag-fry--neutral {
+  background: var(--fry-f-color-tag-business-neutral-background, #e6e8ec);
+  border-color: var(--fry-f-color-tag-business-neutral-border, #858993);
+  color: var(--fry-f-color-tag-business-neutral-content, #2c2f39);
+}
+.tag-fry--success {
+  background: var(--fry-f-color-tag-business-success-background, #c6eeed);
+  border-color: var(--fry-f-color-tag-business-success-border, #57a8a7);
+  color: var(--fry-f-color-tag-business-success-content, #1b3c3b);
+}
+.tag-fry--warning {
+  background: var(--fry-f-color-tag-business-warning-background, #fff1e1);
+  border-color: var(--fry-f-color-tag-business-warning-border, #ce8700);
+  color: var(--fry-f-color-tag-business-warning-content, #4b2e00);
+}
+.tag-fry--danger {
+  background: var(--fry-f-color-tag-business-danger-background, #ffdada);
+  border-color: var(--fry-f-color-tag-business-danger-border, #ea6972);
+  color: var(--fry-f-color-tag-business-danger-content, #650c1d);
+}
+.tag-fry--info {
+  background: var(--fry-f-color-tag-business-info-background, #d3e7ff);
+  border-color: var(--fry-f-color-tag-business-info-border, #469bf7);
+  color: var(--fry-f-color-tag-business-info-content, #003567);
+}
+.tag-fry--reactivated {
+  background: var(--fry-f-color-tag-business-reactivated-background, #fad8fb);
+  border-color: var(--fry-f-color-tag-business-reactivated-border, #c972ce);
+  color: var(--fry-f-color-tag-business-reactivated-content, #521856);
+}
+
+/* Business Progress bar FrYDA (16 px, píldora, indicador recto recortado por el track) */
+.barra-fry {
+  display: block;
+  height: var(--fry-f-component-progressbar-sizing-height-business, 16px);
+  border: 1px solid var(--fry-barra-borde);
+  border-radius: 9999px;
+  background: var(--fry-barra-fondo);
+  overflow: hidden;
+}
+.barra-fry__relleno {
+  display: block;
+  height: 100%;
+  background: var(--fry-barra-avance);
+  transition: width 0.3s ease;
+}
+.barra-fry--success .barra-fry__relleno {
+  background: var(--fry-barra-exito);
+}
+.barra-fry--error .barra-fry__relleno {
+  background: var(--fry-barra-error);
+}
+
+/* Avatar FrYDA · formato xs (40 px, círculo, superficie sutil) */
+.avatar-fry {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background: var(--c-fondo-hueso);
+  color: var(--c-texto-suave);
+  font-size: 13px;
+  font-weight: 600;
+}
+.grupos__cabecera {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 24px 24px 4px;
+}
+.grupos__cabecera .t-sutil {
+  font-size: 12px;
+  line-height: 16px;
+}
+.grupos__bajada {
+  color: var(--c-texto-suave);
+}
+
+.grupos__contenido {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 20px 24px 24px;
+}
+
+.grupos__h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+}
+.grupos__nota {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--c-texto-sutil);
+}
+.grupos__pie {
+  margin-top: -8px;
+}
+.enlace {
+  color: var(--c-naranja);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* Semáforo */
+.semaforo {
+  flex: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.semaforo--ok {
+  background: var(--fry-barra-exito);
+}
+.semaforo--alerta {
+  background: var(--fry-f-color-tag-business-warning-border, #ce8700);
+}
+.semaforo--peligro {
+  background: var(--fry-barra-error);
+}
+.semaforo--info {
+  background: var(--fry-f-color-tag-business-info-border, #469bf7);
+}
+
+/* Indicadores del grupo */
+.grupos__indicadores {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+.indicador {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px;
+  border-radius: 12px;
+  background: var(--c-fondo-hueso);
+}
+.indicador__etiqueta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+  color: var(--c-texto-suave);
+}
+.indicador__valor {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+}
+.indicador__valor span {
+  font-size: 14px;
+  color: var(--c-texto-sutil);
+}
+.indicador__ayuda {
+  font-size: 11px;
+  line-height: 14px;
+  color: var(--c-texto-sutil);
+}
+
+/* Filas de personas (créditos, consultoras) */
+.grupos__creditos {
+  padding: 16px;
+  border-color: var(--c-naranja);
+}
+.grupos__creditos > .grupos__nota {
+  margin: -6px 0 8px;
+}
+.grupos__ok {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  font-size: 12px;
+  line-height: 16px;
+  color: #1b3c3b;
+}
+.fila-persona {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--c-borde);
+}
+.fila-persona:last-child {
+  border-bottom: 0;
+}
+.grupos__lista .fila-persona {
+  padding: 12px 16px;
+}
+.fila-persona__info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: left;
+}
+.fila-persona__info > span {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--c-texto-suave);
+}
+.fila-persona__etiquetas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 2px;
+}
+
+/* Acciones del grupo */
+.acciones-grupo {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+.accion-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px;
+  border: 1px solid #d2d2d4;
+  border-radius: 12px;
+  text-align: left;
+}
+.accion-grupo:active {
+  background: var(--c-fondo-hueso);
+}
+.accion-grupo__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.accion-grupo__n {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+}
+.accion-grupo__ayuda {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--c-texto-sutil);
+}
+
+/* Lista de consultoras */
+#consultoras-gp {
+  scroll-margin-top: 12px;
+}
+#consultoras-gp fry-searchbar {
+  display: block;
+}
+.grupos__filtros {
+  display: flex;
+  gap: 8px;
+  margin: 12px -24px 12px;
+  padding: 0 24px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.grupos__filtros::-webkit-scrollbar {
+  display: none;
+}
+.grupos__filtros fry-chip {
+  flex: none;
+}
+.grupos__lista {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Crecer e incorporar */
+.grupos__crecer {
+  padding: 16px;
+}
+.grupos__crecer .grupos__h2 {
+  margin-bottom: 4px;
+}
+.enlace-fila {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--c-borde);
+  text-align: left;
+}
+.enlace-fila > span {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.enlace-fila > span > span {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--c-texto-suave);
+}
+.grupos__crecer .grupos__nota {
+  margin-top: 12px;
+}
+
+/* Confirmar crédito (hoja inferior) */
+.confirmar-credito {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px 24px 8px;
+}
+.confirmar-credito dl {
+  margin: 0;
+}
+.confirmar-credito dl > div {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--c-borde);
+}
+.confirmar-credito dd {
+  margin: 0;
+  font-weight: 600;
+}
+
+/* ---------- Mis Directoras ---------- */
+.resumen-red {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+}
+.anillo {
+  position: relative;
+  flex: none;
+  width: 104px;
+  height: 104px;
+}
+.anillo svg {
+  display: block;
+}
+.anillo__valor {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.anillo__valor b {
+  font-size: 20px;
+  line-height: 24px;
+}
+.anillo__valor span {
+  font-size: 11px;
+  line-height: 14px;
+  color: var(--c-texto-sutil);
+}
+.resumen-red__datos {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.resumen-red__meta {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--c-texto-suave);
+}
+.resumen-red__meta--baja {
+  color: var(--c-rojo);
+}
+.resumen-red__titulo {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+}
+.barra-cuadrantes {
+  display: flex;
+  gap: 3px;
+  height: 28px;
+}
+.barra-cuadrantes__parte {
+  min-width: 34px;
+  display: grid;
+  place-items: center;
+  border: 1px solid;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.resumen-red__generaciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--c-texto-suave);
+}
+.resumen-red__generaciones b {
+  font-size: 16px;
+  color: var(--c-texto);
+}
+
+.cuadrante {
+  flex: none;
+  width: 28px;
+  height: 28px;
+  display: inline-grid;
+  place-items: center;
+  border: 1px solid;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+}
+.generacion {
+  padding: 1px 6px;
+  border-radius: 100px;
+  background: var(--c-fondo-suave);
+  font-size: 10px;
+  line-height: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--c-texto-suave);
+  vertical-align: middle;
+}
+.generacion--ok {
+  background: transparent;
+  color: #1b3c3b;
+  padding: 0;
+}
+
+.directora {
+  border-bottom: 1px solid var(--c-borde);
+}
+.directora:last-child {
+  border-bottom: 0;
+}
+.directora__cabecera {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+}
+.directora__cabecera fry-icon {
+  flex: none;
+  color: var(--c-texto-sutil);
+}
+.directora--abierta .directora__cabecera {
+  background: var(--c-fondo-hueso);
+}
+.directora__perfil {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 4px 16px 16px;
+  background: var(--c-fondo-hueso);
+}
+.dimension {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 8px;
+  background: var(--c-fondo);
+}
+.dimension__titulo {
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--c-texto-suave);
+}
+.dimension__fila {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  line-height: 18px;
+}
+.dimension__numero {
+  font-size: 18px;
+}
+.dimension__ayuda {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--c-texto-sutil);
+}
+.estrellas {
+  color: var(--c-naranja);
+  letter-spacing: 1px;
+}
+.meta {
+  display: grid;
+  grid-template-columns: 96px 1fr auto;
+  align-items: center;
+  gap: 8px;
+}
+.meta__etiqueta {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--c-texto-suave);
+}
+.meta__valor {
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.meta__valor span {
+  font-weight: 400;
+  color: var(--c-texto-sutil);
+}
+.directora__acciones {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.sanas {
+  padding: 14px 16px;
+  background: var(--c-fondo-hueso);
+}
+.sanas__titulo {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+}
+.sanas__lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+.sana {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: 1px solid var(--fry-f-color-tag-business-success-border, #57a8a7);
+  border-radius: 100px;
+  background: var(--fry-f-color-tag-business-success-background, #c6eeed);
+  color: var(--fry-f-color-tag-business-success-content, #1b3c3b);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+}

@@ -21,12 +21,15 @@ export const RUTAS = {
   simuladorFormacion: '/simulador-formacion/',
   /** Prefijo: /chat/directora-hija/{id} */
   chatDirectoraHija: '/chat/directora-hija/',
+  /** Prefijo: /impostacion/{código} (la BDM ve Maya como la directora) */
+  impostacion: '/impostacion/',
 } as const
 
 const RUTAS_POR_GRUPO: Record<Grupo, string[]> = {
   emprendedora: [RUTAS.inicio, RUTAS.miNegocio, RUTAS.misGrupos, RUTAS.programas, RUTAS.miCarrera, RUTAS.simulador, RUTAS.chatDirectora, RUTAS.chatPrograma],
   directora: [RUTAS.inicio, RUTAS.miNegocio, RUTAS.misGrupos, RUTAS.programas, RUTAS.formaciones, RUTAS.chatCandidata, RUTAS.chatPrograma, RUTAS.simuladorFormacion],
   lider: [RUTAS.inicio, RUTAS.emprendedoras, RUTAS.chatDirectoraHija],
+  bdm: [RUTAS.inicio, RUTAS.miNegocio, RUTAS.misGrupos, RUTAS.programas, RUTAS.formaciones, RUTAS.impostacion],
 }
 
 export function rutaExiste(ruta: string, grupo: Grupo): boolean {
