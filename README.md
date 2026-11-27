@@ -9,7 +9,7 @@ npm install
 npm run dev
 ```
 
-`npm run build` genera el sitio estático en `dist/`. El repo es privado: la publicación en GitHub Pages queda manual.
+`npm run build` genera el sitio estático en `dist/`. Cada push a `main` lo publica en GitHub Pages.
 
 ## Cómo se usa
 
